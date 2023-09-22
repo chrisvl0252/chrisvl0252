@@ -1,0 +1,112 @@
+<html>
+  <head>
+    
+    <title>Rekenmachine</title>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="font/css/fontello.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+
+</head>
+
+
+<body>
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="index.html">
+                    <!--AANPASSING-->
+                    <img src="user.jpg" alt="" style="width:64px">
+                </a>
+                <ul class="nav nav-collapse pull-right">
+                    <li><a href="index.html" class="active"><i class="icon-user"></i> Profile</a></li>
+                    <li><a href="skills.html"><i class="icon-trophy"></i> Skills</a></li>
+                </ul>
+                <div class="nav-collapse collapse"></div>
+            </div>
+        </div>
+    </div>
+<h1>Rekenmachine</h1>
+    
+    <script>
+  
+  function bereken()
+  
+  let getal1 =document.getElementById("getal1").value;
+  let getal2 =document.getElementById("getal2").value;
+  let operator =document.getElementById("operator").value;
+  
+  getal1 = parseInt(getal1)
+  getal2 = parseInt(getal2)
+  let resultaat = 0;
+  
+  if (operator == "+"){
+  resultaat = optellen (getal1, getal2);
+  } else if (operator == "-"){
+  resultaat = aftrekken (getal1, getal2);
+  } else if (operator == "*"){
+  resultaat = vermenigvuldigen (getal1, getal2);
+  } else if (operator == "/"){
+  resultaat = delen (getal1, getal2);
+  }
+   document.getElementById("resultaat").innerHTML = "Het resultaat  is "  + resultaat;
+   
+   
+   
+   
+   
+   function optellen(g1, g2){
+    return g1 + g2;
+  }
+  
+  function aftrekken(g1, g2){
+    return g1 - g2;
+  }
+
+  function vermenigvuldigen(g1, g2){
+    //check of g2 geen 0 is....
+    return g1 * g2;
+  }
+
+  function delen(g1, g2){
+    return g1 / g2;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</script>
+    
+    
+    
+
+  
+  
+
+  <body>
+  
+  
+  <input type="text" id="input1"><br><br>
+  <select id="operator" onchange="bereken()">
+    <option>selecteer</option>
+    <option value="+">Optellen</option>
+    <option value="-" >Aftrekken</option>
+    <option value="*">Vermenigvuldigen</option>
+    <option value="/">Delen</option>
+    </select><br><br>
+    <input type="text" id="input2"><br><br>
+  <button type="button" onclick="document.write(resultaat)">Bereken></button><br><br>
+
+  
+  
+</body>
+</html>

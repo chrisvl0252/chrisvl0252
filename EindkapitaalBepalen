@@ -1,0 +1,91 @@
+<html>
+  
+  <head>
+
+<title>Programmeren Opgave 1</title>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="font/css/fontello.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+
+</head>
+
+
+<body>
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="index.html">
+                    <!--AANPASSING-->
+                    <img src="user.jpg" alt="" style="width:64px">
+                </a>
+                <ul class="nav nav-collapse pull-right">
+                    <li><a href="index.html" class="active"><i class="icon-user"></i> Profile</a></li>
+                    <li><a href="skills.html"><i class="icon-trophy"></i> Skills</a></li>
+                </ul>
+                <div class="nav-collapse collapse"></div>
+            </div>
+        </div>
+    </div>
+<h1>Opgave 1 van Programmeren</h1>
+  
+<div class="span5">
+<label>Startkapitaal</label><input type="number" id="invoer1"><br>
+<label>Rente persentage </label><input type="number" id="invoer2"><br>
+<label>Rente tijd</label><input type="number" id="invoer3"><br>
+<select id="functie">
+<option value="4">Nederland</option>
+<option value="3">Finland</option>
+<option value="2">Amerika</option>
+<option value="1">Engeland</option>
+</select><br />
+<button onclick="check()"> <b> Bereken je renten! </b> </button>
+<br />
+<p>
+<label>Je eindbedrag is: </label><div id="resultaat"></div>
+</div>
+<script>
+function check(){
+let operator = document.getElementById("functie").value;
+
+let getal1 = document.getElementById("invoer1").value;
+let getal2 = document.getElementById("invoer2").value;
+let getal3 = document.getElementById("invoer3").value;
+
+let antwoord = bereken(getal1, getal2, getal3);
+
+if (operator == "4") {
+antwoord = antwoord.toLocaleString("nl-NL", {style:"currency", currency:"EUR"});
+}
+
+if (operator == "3") {
+antwoord = antwoord.toLocaleString("fi-FI", {style:"currency", currency:"EUR"});
+}
+
+if (operator == "2") {
+antwoord = antwoord.toLocaleString("en-US", {style:"currency", currency:"USD"});
+}
+
+if (operator == "1") {
+antwoord = antwoord.toLocaleString("en-UK", {style:"currency", currency:"GBP"});
+}
+
+document.getElementById("resultaat").innerHTML = "je rente bedrag is " + antwoord;
+}
+
+function bereken(get1, bet2, get3){
+let ant = get1;
+bet2 = bet2/100;
+bet2=bet2+1;
+ for(let i = 0; i < get3; i++){
+ant = get1 * bet2;
+get1 = ant;
+}
+return get1;
+}
+</script>
+</html>
